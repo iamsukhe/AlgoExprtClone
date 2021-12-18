@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+    AlgoExpert | Ace the Coding Interviews
+  </title>
+
+  <!-- Bootstrap , fonts & icons  -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./fonts/icon-font/css/style.css">
+  <link rel="stylesheet" href="./fonts/typography-font/typo.css">
+  <link rel="stylesheet" href="./fonts/fontawesome-5/css/all.css">
+  <!-- Plugin'stylesheets  -->
+  <link rel="stylesheet" href="./plugins/aos/aos.min.css">
+  <link rel="stylesheet" href="./plugins/fancybox/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="./plugins/nice-select/nice-select.min.css">
+  <link rel="stylesheet" href="./plugins/slick/slick.min.css">
+
+
+  <!-- Vendor stylesheets  -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Jura:wght@300&family=Montserrat:wght@200&display=swap"
+    rel="stylesheet">
+  <!-- Custom stylesheet -->
+</head>
+
+<body data-theme-mode-panel-active data-theme="light">
+  <div class="site-wrapper overflow-hidden ">
+
+    <!-- Header Area -->
+    <header
+      class="site-header site-header--menu-right menu-block-5 dynamic-sticky-bg mt-3 mt-lg-0 site-header--absolute site-header--sticky">
+      <div class="container">
+        <nav class="navbar site-navbar">
+          <!-- Brand Logo-->
+          <div class="brand-logo">
+            <a href="#">
+              <!-- light version logo (logo must be black)-->
+              <div class="brand-logo-center">
+                <div>
+                  <img class="brand-logo-img"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABuCAMAAADmp0YAAAAAM1BMVEUAAAD///////////////////////////////////////////////////////////////+3leKCAAAAEHRSTlMAECAwQFBgcH+Pn6+/z9/vBVGEbAAABi1JREFUaN6tWleC4yAMtQGbYtr9T7vJ2BSBQHhm+dnZJCDUngratu8S2sXvCpcS+/bHtR/yCj/HOSPyp9zEagUr/0LitL4+zT535i62y/DfURAmtEd59v2CdZ//3OB4LybhsKN+qOiIL3u+5MIODjIVIyGE33Pz4aLZXI4LbJP3X9dXC/xQ8DrXom74BW+nxXejeD6VmwVG8OHsBHTUgkXvOgDjLFtuKna7vweCASYdSJmdtc1qwLu4P9yS2MBiKvSmji9WScrr5py9JuL7zXqNmTNMRevnRDamaWb2ig3DkB9QRD4SLWbpUTM7PGXuNZEwEIasZNGzURQX1IDTmkjktFpdIw5eTN2ykf88ine9CQ80GwSQZRaVH+PP8fiJfZxyxUYVJqohG1ncNv87WeVA81gZy+4azpkXJQ6SU06hyTXRIf/fzsHtvp3Y9jDVfOsPgdc4Yth025Hh5GZJUwBV3P/IGE5FHJ1VoSbuWOu/D6xkHPD5/o8tk2DLmsh3MWrHLa0oildqOm4AKhcdaG5puervsBAApygzwhRT+/5CQC8ScwsB8wCI5Wh/vG/j32g9Bfbk0XHBVVr7ChQvIgC5Pv5oCBq+yXmIS5nmV3rhbpmGdQBiiN+bNqlQKzQ+GHmVrG2CqsVJgI4mrGRINDWSTXh5VHD1EWzICg8Q6y1JpWdk292UlcxHuthOUXks0e+IL2tSH2kR2lcRC7iPPLAt+dqmvlfSi5uI1+Px4kJoGDzDs3G45fGReA4glg+DomkVlr6wI2fvgfoxMD/KiZFM9arMGizXmxZk5cDRHc2Gk/ZPdA8mRxaRuCLDDHSz2Z1IHMGxTfcemdLEoTt4BCz1zB0eJKhEyQMVPBAqSbn7NLr6LkGdBE3RhsrkVYrIFBS0nrrQYqe5PquqqUTjLmqsdah7BoxXVcVX6BMiFWsd8DA032aDrXPGosADNARE4963idlIJ1g+A1u6UslLRJNDnhDCf9BCriQzRzKWZDalvmpjfLGoRMXvPC6lV4+yrelMs2/0uEaX8boGMIeXFLG7UjrInVzaVi1HfJUt5cNaY5d1Q+BokVG/yJWa39dsW2D+V4tz9lWanC2sQQYHLIq3RPaya6l5lQXGe1jfgepCH4+aQpxKYpufO0CX/ZWIm4hLgZQgYFa5JK66OdTnz6x2TIu2i/S6sFpDedDWy6qrKbEajK5BKitpwTR/kVvYRZwndEaKRoKVq1Oj6GBFthE0wcq1VOdFlkCvwlPdN5VhMHQsFWPTLsJehM16YzERa/XnTYH3Efx90MoJEuzVgaDlSGgRAOFk7FLzXd6HeMXaiz3nMtLCLniqxUIQ+y6ks3dBQ3NEw8G22c2sL3zEwSY5h1/RVe7jqi2nf6IFsUHkwtJUompLLT2AiiqO2wLPpeANjimVxGmQSLqLBkiDylJOqrZc56nVqo0PDjPDqi3XeaMiiA/yYITHUdU2rvOSs3R1nhw3cXAqmQbWwjN4jucmsdMhEpvSyL0CVFdEswCJhIP6SI/LvLgTLSLXmsMos05mjCCjoptdS3zgDZyL6ixBKma5FWU7v9ZLjbvCh+NvmmpL7cEUsCzd7KpY0Q1q6XeNTs9WGp3ZluRaxg9bthSN5PYS7RKv5WQkjXSsA9C48PxetdFpGsnB+bLau8xrZY6iVrVbTJN3kHddq3fylbeTZUXzsL8gMV76mnqtquAen+OgKx29rT6c5eQxHGJZMfkp6PGxeQ+BqXz9oy5hiIcKkUxKLJQU5THzhvbi/G7uwUndC8+yJc9Oj5dV9SZpf5QLD8x5dCdUcxwS7Sjgia8ln8qlHzyVh64nNcqU3fqjf/skXj1uDt8cOZj2GPxKFTYU+w3KBHIQ4yh39ag8y3RBdGJSKIyJ8GpWa6Tc3RJvwXMiu6rqckkXQQPU8JMxH64qpLJsLcZ8x3x2NJhuSNbK64rdk2/CoFECZw2e0YKmI/eR02nrQSqzEAJ30Ea4iss+EcjmavRrHVzo/zNEpo6fmbRco+5xOA7njvWZyMPOxuHGg31ie7XO0WCfxjrXz5TT+8nOAyVzJ+U9lfDfhy3hRNt3PvXc/rCAcQIcEPrmxl/q+PMA7FYGYPWt139Q6uryekUiBAAAAABJRU5ErkJggg=="
+                    alt="" class="light-version-logo">
+                  <!-- Dark version logo (logo must be White)-->
+                  <img src="image/png/logo-white.png" alt="" class="dark-version-logo">
+                </div>
+
+                <h1 class="logo-heading">AlgoExpert</h1>
+              </div>
+              <div class="logo-para">Ace the Technical Interviews</div>
+            </a>
+          </div>
+          <div class="menu-block-wrapper  ms-4">
+            <div class="menu-overlay"></div>
+            <nav class="menu-block " id="append-menu-header">
+              <div class="mobile-menu-head">
+                <div class="go-back">
+                  <i class="fa fa-angle-left"></i>
+                </div>
+                <div class="current-menu-title"></div>
+                <div class="mobile-menu-close">&times;</div>
+              </div>
+              <ul class="site-menu-main">
+                <li class="nav-item nav-item-has-children">
+                  <a href="#" class="nav-link-item drop-trigger">Product
+                  </a>
+                  <ul class="sub-menu sub-menu-arrow" id="submenu-1">
+                    <li class="sub-menu--item ">
+                      <a href="home-marketing.html"> AlgoExpert <br> Ace the Coding Interviews</a>
+                    </li>
+                    <li class="sub-menu--item ">
+                      <a href="home-marketing.html"> AlgoExpert <br> Ace the Coding Interviews</a>
+                    </li>
+                    <li class="sub-menu--item ">
+                      <a href="home-marketing.html"> AlgoExpert <br> Ace the Coding Interviews</a>
+                    </li>
+                    <li class="sub-menu--item ">
+                      <a href="home-marketing.html"> AlgoExpert <br> Ace the Coding Interviews</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item nav-item-has-children">
+                  <a href="#" class="nav-link-item drop-trigger">Content
+                  </a>
+                  <ul class="sub-menu sub-menu-arrow" id="submenu-2">
+                    <li class="sub-menu--item nav-item-has-children">
+                      <a href="#" data-menu-get="h3" class="drop-trigger">AlgoExpert<i class="fas fa-angle-right"></i>
+                      </a>
+                      <ul class="sub-menu" id="submenu-3">
+                        <li class="sub-menu--item">
+                          <a href="#">Codeing Interview Questions </a>
+                        </li>
+                        <li class="sub-menu--item">
+                          <a href="#">Codeing Interview Questions </a>
+                        </li>
+                        <li class="sub-menu--item">
+                          <a href="#">Codeing Interview Questions </a>
+                        </li>
+                        <li class="sub-menu--item">
+                          <a href="#">Codeing Interview Questions </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="sub-menu--item nav-item-has-children">
+                      <a href="#" data-menu-get="h3" class="drop-trigger">AlgoExpert<i class="fas fa-angle-right"></i>
+                      </a>
+                      <ul class="sub-menu" id="submenu-3">
+                        <li class="sub-menu--item">
+                          <a href="#">Codeing Interview Questions </a>
+                        </li>
+                        <li class="sub-menu--item">
+                          <a href="#">Codeing Interview Questions </a>
+                        </li>
+                        <li class="sub-menu--item">
+                          <a href="#">Codeing Interview Questions </a>
+                        </li>
+                        <li class="sub-menu--item">
+                          <a href="#">Codeing Interview Questions </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="sub-menu--item nav-item-has-children">
+                      <a href="#" data-menu-get="h3" class="drop-trigger">AlgoExpert<i class="fas fa-angle-right"></i>
+                      </a>
+                      <ul class="sub-menu" id="submenu-3">
+                        <li class="sub-menu--item">
+                          <a href="#">Codeing Interview Questions </a>
+                        </li>
+                        <li class="sub-menu--item">
+                          <a href="#">Codeing Interview Questions </a>
+                        </li>
+                        <li class="sub-menu--item">
+                          <a href="#">Codeing Interview Questions </a>
+                        </li>
+                        <li class="sub-menu--item">
+                          <a href="#">Codeing Interview Questions </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="sub-menu--item nav-item-has-children">
+                      <a href="#" data-menu-get="h3" class="drop-trigger">AlgoExpert<i class="fas fa-angle-right"></i>
+                      </a>
+                      <ul class="sub-menu" id="submenu-3">
+                        <li class="sub-menu--item">
+                          <a href="#">Codeing Interview Questions </a>
+                        </li>
+                        <li class="sub-menu--item">
+                          <a href="#">Codeing Interview Questions </a>
+                        </li>
+                        <li class="sub-menu--item">
+                          <a href="#">Codeing Interview Questions </a>
+                        </li>
+                        <li class="sub-menu--item">
+                          <a href="#">Codeing Interview Questions </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="sub-menu--item nav-item-has-children">
+                      <a href="#" data-menu-get="h3" class="drop-trigger">AlgoExpert<i class="fas fa-angle-right"></i>
+                      </a>
+                      <ul class="sub-menu" id="submenu-3">
+                        <li class="sub-menu--item">
+                          <a href="#">Codeing Interview Questions </a>
+                        </li>
+                        <li class="sub-menu--item">
+                          <a href="#">Codeing Interview Questions </a>
+                        </li>
+                        <li class="sub-menu--item">
+                          <a href="#">Codeing Interview Questions </a>
+                        </li>
+                        <li class="sub-menu--item">
+                          <a href="#">Codeing Interview Questions </a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item nav-item-has-children has-megamenu">
+                  <a href="#" class="nav-link-item drop-trigger">Team
+                  </a>
+                </li>
+                <li class="nav-item nav-item-has-children">
+                  <a href="#" class="nav-link-item drop-trigger">Purchase
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="header-btn ">
+            <a class="btn text-white login-btn ms-auto ms-lg-4 d-none d-sm-flex" href="#">
+              Log In
+            </a>
+          </div>
+          <!-- mobile menu trigger -->
+          <div class="mobile-menu-trigger">
+            <span></span>
+          </div>
+          <!--/.Mobile Menu Hamburger Ends-->
+        </nav>
+      </div>
+    </header>
+    <!-- navbar- -->
+    <!--/ .Header Area -->
+    <!-- Hero Area -->
+    <div class="welcome-area welcome-area--l8 position-relative">
+      <div class="container">
+        <div class="d-flex align-items-center justify-content-center">
+          <!-- Welcome content Area -->
+          <div class="d-flex welcome-content">
+            <div style="max-width: 500px;" class="welcome-content welcome-content--l8">
+              <h1 class="welcome-heading">AlgoExpert</h1>
+              <p class="welcome-pera">The ultimate resource to prepare for coding interviews. Everything you
+                need, in one streamlined platform.</p>
+              <div class="welcome-btn-group--l8">
+                <a class="btn btn--lg-2 btn-welcome me-3 text-white   me-3 popup-btn" href="#"><i
+                    class="fas fa-credit-card me-2"></i>Buy AlgoExpert</a>
+              </div>
+            </div>
+          </div>
+          <!--/ .Welcome Content Area -->
+          <!--/ .Welcome img Area -->
+          <div class="Es8y62vb7Vz65d_HOWKyt">
+            <div class="_3XdIRx0A8HW9RUytPP8MIy _3iG6xLSZxO1k-4ckVuLEj8">
+              <div class="EfwB6rCm_EX4TtDRgV-_b">
+                <div class="_1bdIHEFcLj582KoUEGG8RW">
+                  <div class="_3XWv442RBuv4MxmTKccql2">
+                    <div class="_2ul34cSKJYhID1B6aQr5js _2DiLpeMr2peXzqmiwGqldF">
+                      <div class="MWTYOfDTUXHpHD8anIASV"><span class="A99_cj9ulQplugJPz_dh0">Prompt</span></div>
+                      <div class="_2JI5PaCeIaLfE9r9bu9Pb1">
+                        <h4 class="_2U8CLD85lFEy6SApj15muF">Max Profit With K Transactions</h4>
+                        <div class="_3rQz5D6HricuykCtbnmN38"></div>
+                        <div class="_3rQz5D6HricuykCtbnmN38"></div>
+                        <div class="_3rQz5D6HricuykCtbnmN38"></div>
+                        <div class="_3rQz5D6HricuykCtbnmN38"></div>
+                        <div class="_3rQz5D6HricuykCtbnmN38"></div><br>
+                        <div class="_3rQz5D6HricuykCtbnmN38"></div>
+                        <div class="_3rQz5D6HricuykCtbnmN38"></div>
+                        <div class="_3rQz5D6HricuykCtbnmN38"></div>
+                        <div class="_3rQz5D6HricuykCtbnmN38"></div>
+                        <div class="_3rQz5D6HricuykCtbnmN38"></div>
+                      </div>
+                    </div>
+                    <div class="_2ul34cSKJYhID1B6aQr5js _37eqjJLPqqnsrrZSv6P-vO">
+                      <div class="MWTYOfDTUXHpHD8anIASV"><span class="A99_cj9ulQplugJPz_dh0">Tests</span></div>
+                      <div class="_2JI5PaCeIaLfE9r9bu9Pb1">
+                        <div class="_1xSQw_tRSmhXvWxmyjA6Ur"><span class="CJXpwkPGeXldITjWaYREm"
+                            style="width: 8.412%;"></span><span class="_3_4JdX-xRJnQ9v1TrLP5EJ"
+                            style="width: 6.76344%;"></span><span class="_38cH8bgG-ZhbrBBgoRkndK"
+                            style="width: 11.9529%;"></span><span class="_38cH8bgG-ZhbrBBgoRkndK"
+                            style="width: 8.11979%;"></span></div>
+                        <div class="_1xSQw_tRSmhXvWxmyjA6Ur"><span class="_38cH8bgG-ZhbrBBgoRkndK"
+                            style="width: 20.7967%;"></span><span class="_1T4LSfLE0ygy6QoT2WbMI4"
+                            style="width: 10.4509%;"></span><span class="_38cH8bgG-ZhbrBBgoRkndK"
+                            style="width: 18.1351%;"></span><span class="_1T4LSfLE0ygy6QoT2WbMI4"
+                            style="width: 9.19699%;"></span></div>
+                        <div class="_1xSQw_tRSmhXvWxmyjA6Ur"><span class="_3_4JdX-xRJnQ9v1TrLP5EJ"
+                            style="width: 6.82091%;"></span><span class="_3HtHvTWPO4M2fJrTlROw3C"
+                            style="width: 10.4293%;"></span><span class="CJXpwkPGeXldITjWaYREm"
+                            style="width: 5.83045%;"></span><span class="_38cH8bgG-ZhbrBBgoRkndK"
+                            style="width: 13.7695%;"></span></div>
+                        <div class="_1xSQw_tRSmhXvWxmyjA6Ur"><span class="_3HtHvTWPO4M2fJrTlROw3C"
+                            style="width: 7.22647%;"></span><span class="_1T4LSfLE0ygy6QoT2WbMI4"
+                            style="width: 12.3689%;"></span><span class="_3_4JdX-xRJnQ9v1TrLP5EJ"
+                            style="width: 17.3581%;"></span><span class="_1T4LSfLE0ygy6QoT2WbMI4"
+                            style="width: 12.1196%;"></span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="_3XWv442RBuv4MxmTKccql2">
+                    <div class="_2ul34cSKJYhID1B6aQr5js _2T4GxTSvR4kmaXMxD2WPHJ">
+                      <div class="MWTYOfDTUXHpHD8anIASV"><span class="A99_cj9ulQplugJPz_dh0">Input</span>
+                        <div class="u-flexSpacer"></div><button class="_1pjcbLNJfN1Q-iAzFQaKMX">Run</button>
+                      </div>
+                      <div class="_2JI5PaCeIaLfE9r9bu9Pb1">
+                        <div class="_1xSQw_tRSmhXvWxmyjA6Ur"><span class="CJXpwkPGeXldITjWaYREm"
+                            style="width: 8.412%;"></span><span class="_3_4JdX-xRJnQ9v1TrLP5EJ"
+                            style="width: 6.76344%;"></span><span class="_38cH8bgG-ZhbrBBgoRkndK"
+                            style="width: 11.9529%;"></span><span class="_38cH8bgG-ZhbrBBgoRkndK"
+                            style="width: 8.11979%;"></span></div>
+                        <div class="_1xSQw_tRSmhXvWxmyjA6Ur"><span class="_38cH8bgG-ZhbrBBgoRkndK"
+                            style="width: 20.7967%;"></span><span class="_1T4LSfLE0ygy6QoT2WbMI4"
+                            style="width: 10.4509%;"></span><span class="_38cH8bgG-ZhbrBBgoRkndK"
+                            style="width: 18.1351%;"></span><span class="_1T4LSfLE0ygy6QoT2WbMI4"
+                            style="width: 9.19699%;"></span></div>
+                        <div class="_1xSQw_tRSmhXvWxmyjA6Ur"><span class="_3_4JdX-xRJnQ9v1TrLP5EJ"
+                            style="width: 6.82091%;"></span><span class="_3HtHvTWPO4M2fJrTlROw3C"
+                            style="width: 10.4293%;"></span><span class="CJXpwkPGeXldITjWaYREm"
+                            style="width: 5.83045%;"></span><span class="_38cH8bgG-ZhbrBBgoRkndK"
+                            style="width: 13.7695%;"></span></div>
+                        <div class="_1xSQw_tRSmhXvWxmyjA6Ur"><span class="_3HtHvTWPO4M2fJrTlROw3C"
+                            style="width: 7.22647%;"></span><span class="_1T4LSfLE0ygy6QoT2WbMI4"
+                            style="width: 12.3689%;"></span><span class="_3_4JdX-xRJnQ9v1TrLP5EJ"
+                            style="width: 17.3581%;"></span><span class="_1T4LSfLE0ygy6QoT2WbMI4"
+                            style="width: 12.1196%;"></span></div>
+                        <div class="_1xSQw_tRSmhXvWxmyjA6Ur"><span class="_3HtHvTWPO4M2fJrTlROw3C"
+                            style="width: 7.22647%;"></span><span class="_1T4LSfLE0ygy6QoT2WbMI4"
+                            style="width: 12.3689%;"></span><span class="_3_4JdX-xRJnQ9v1TrLP5EJ"
+                            style="width: 17.3581%;"></span><span class="_1T4LSfLE0ygy6QoT2WbMI4"
+                            style="width: 12.1196%;"></span></div>
+                        <div class="_1xSQw_tRSmhXvWxmyjA6Ur"><span class="_3HtHvTWPO4M2fJrTlROw3C"
+                            style="width: 7.22647%;"></span><span class="_1T4LSfLE0ygy6QoT2WbMI4"
+                            style="width: 12.3689%;"></span><span class="_3_4JdX-xRJnQ9v1TrLP5EJ"
+                            style="width: 17.3581%;"></span><span class="_1T4LSfLE0ygy6QoT2WbMI4"
+                            style="width: 12.1196%;"></span></div>
+                        <div class="_1xSQw_tRSmhXvWxmyjA6Ur"><span class="_3HtHvTWPO4M2fJrTlROw3C"
+                            style="width: 7.22647%;"></span><span class="_1T4LSfLE0ygy6QoT2WbMI4"
+                            style="width: 12.3689%;"></span><span class="_3_4JdX-xRJnQ9v1TrLP5EJ"
+                            style="width: 17.3581%;"></span><span class="_1T4LSfLE0ygy6QoT2WbMI4"
+                            style="width: 12.1196%;"></span></div>
+                        <div class="_1xSQw_tRSmhXvWxmyjA6Ur"><span class="_3HtHvTWPO4M2fJrTlROw3C"
+                            style="width: 7.22647%;"></span><span class="_1T4LSfLE0ygy6QoT2WbMI4"
+                            style="width: 12.3689%;"></span><span class="_3_4JdX-xRJnQ9v1TrLP5EJ"
+                            style="width: 17.3581%;"></span><span class="_1T4LSfLE0ygy6QoT2WbMI4"
+                            style="width: 12.1196%;"></span></div>
+                      </div>
+                    </div>
+                    <div class="_2ul34cSKJYhID1B6aQr5js _36E96CnyLcQ8rLklgi169k">
+                      <div class="MWTYOfDTUXHpHD8anIASV"><span class="A99_cj9ulQplugJPz_dh0">Output</span>
+                        <div class="u-flexSpacer"></div><button class="_3p9flyvA2zuf9uV_5WqHva">Submit</button>
+                      </div>
+                      <div class="_2JI5PaCeIaLfE9r9bu9Pb1">
+                        <div class="_9bTWmI3gAPBXSnGILY6sy _2IQiW5O_aZ238hQYtVEPUd">
+                          <div class="_2UJTs6KvyFkYdAqIxLsxQA _3-Xh_9cC_oLO6_9D1l5b-h " data-tip=""
+                            style="height: 60px; width: 60px;"></div>
+                        </div>
+                        <div class="">
+                          <div class="_2NZC0X6FZfKAtFcP1XcoBG" style="opacity: 1; transform: scale(1);"><svg
+                              viewBox="0 0 232 232" fill="none" xmlns="http://www.w3.org/2000/svg"
+                              class="_3V1St8TbgPqWSBNsYc2zit">
+                              <circle class="circle" cx="116" cy="116" r="108.5" stroke="currentColor" stroke-width="15"
+                                stroke-linejoin="round"></circle>
+                              <path class="line1" stroke="currentColor" stroke-width="15" stroke-linecap="round"
+                                stroke-linejoin="round" d="M65.606 114.888l37.282 36.506"></path>
+                              <path class="line2" stroke="currentColor" stroke-width="15" stroke-linecap="round"
+                                stroke-linejoin="round" d="M177.741 80.603l-73.138 69.656"></path>
+                            </svg>
+                            <div class="_1ISMZUy4LstyrZfoopo9Xj _2cF2sbZwdeU5n7pKO-Z71U"></div>
+                          </div>
+                          <div class="_2NZC0X6FZfKAtFcP1XcoBG" style="opacity: 1; transform: scale(1);"><svg
+                              viewBox="0 0 232 232" fill="none" xmlns="http://www.w3.org/2000/svg"
+                              class="_3V1St8TbgPqWSBNsYc2zit">
+                              <circle class="circle" cx="116" cy="116" r="108.5" stroke="currentColor" stroke-width="15"
+                                stroke-linejoin="round"></circle>
+                              <path class="line1" stroke="currentColor" stroke-width="15" stroke-linecap="round"
+                                stroke-linejoin="round" d="M65.606 114.888l37.282 36.506"></path>
+                              <path class="line2" stroke="currentColor" stroke-width="15" stroke-linecap="round"
+                                stroke-linejoin="round" d="M177.741 80.603l-73.138 69.656"></path>
+                            </svg>
+                            <div class="_1ISMZUy4LstyrZfoopo9Xj _2cF2sbZwdeU5n7pKO-Z71U"></div>
+                          </div>
+                          <div class="_2NZC0X6FZfKAtFcP1XcoBG" style="opacity: 1; transform: scale(1);"><svg
+                              viewBox="0 0 232 232" fill="none" xmlns="http://www.w3.org/2000/svg"
+                              class="hd3G3fae0UExVPpOLRtCU">
+                              <circle class="circle" cx="116" cy="116" r="108.5" stroke="currentColor"
+                                stroke-width="15"></circle>
+                              <path class="line1" stroke="currentColor" stroke-width="15" stroke-linecap="round"
+                                d="M67.32 162.789l95.236-95.681"></path>
+                              <path class="line2" stroke="currentColor" stroke-width="15" stroke-linecap="round"
+                                d="M164.9 162.562L69.219 67.325"></path>
+                            </svg>
+                            <div class="_1ISMZUy4LstyrZfoopo9Xj _2QtG1JgytlDiZAbXYU5eve"></div>
+                          </div>
+                          <div class="_2NZC0X6FZfKAtFcP1XcoBG" style="opacity: 1; transform: scale(1);"><svg
+                              viewBox="0 0 232 232" fill="none" xmlns="http://www.w3.org/2000/svg"
+                              class="_3V1St8TbgPqWSBNsYc2zit">
+                              <circle class="circle" cx="116" cy="116" r="108.5" stroke="currentColor" stroke-width="15"
+                                stroke-linejoin="round"></circle>
+                              <path class="line1" stroke="currentColor" stroke-width="15" stroke-linecap="round"
+                                stroke-linejoin="round" d="M65.606 114.888l37.282 36.506"></path>
+                              <path class="line2" stroke="currentColor" stroke-width="15" stroke-linecap="round"
+                                stroke-linejoin="round" d="M177.741 80.603l-73.138 69.656"></path>
+                            </svg>
+                            <div class="_1ISMZUy4LstyrZfoopo9Xj _2cF2sbZwdeU5n7pKO-Z71U"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/ .Welcome img Area -->
+        </div>
+      </div>
+    </div>
+    <!--/ .Hero Area -->
+    <!-- Services Area -->
+    <div class="section-area section-area--l8 bg-default-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xl-8">
+            <!-- Section Title -->
+            <div class="section-title section-title--l8 text-center">
+              <h2 class="fw-lighter">What is AlgoExpert?</h2>
+              <div id="outer">
+                <div class="button_slide slide_right"><i class="fas fa-play-circle"></i> Watch the Video</div>
+              </div>
+            </div>
+            <!--/ .Section Title -->
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-xl-4 col-lg-4 col-md-6 col-xs-8">
+            <div class="card card--services-l6 text-center card-hover__bittersweet">
+              <div class="card--services-l6__icon bg-op1__bittersweet mx-auto">
+                <i class="text-bittersweet fas fa-tasks"></i>
+              </div>
+              <h3 class="card--services-l6__heading">Lorem, ipsum.</h3>
+              <p class="card--services-l6__content">Lorem, ipsum.lorem Lorem ipsum <br class="d-none d-xs-block"> lorem
+                of Lorem lpsum<br class="d-none d-xs-block"> rem ipsum dolor sit ame</p>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-xs-8">
+            <div class="card card--services-l6 text-center card-hover__bittersweet">
+              <div class="card--services-l6__icon bg-op1__bittersweet mx-auto">
+                <i class="text-bittersweet fas fa-photo-video"></i>
+              </div>
+              <h3 class="card--services-l6__heading">Lorem, ipsum.</h3>
+              <p class="card--services-l6__content">Lorem, ipsum.lorem Lorem ipsum <br class="d-none d-xs-block"> lorem
+                of Lorem lpsum<br class="d-none d-xs-block"> rem ipsum dolor sit ame</p>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-xs-8">
+            <div class="card card--services-l6 text-center card-hover__bittersweet">
+              <div class="card--services-l6__icon bg-op1__bittersweet mx-auto">
+                <i class="text-bittersweet fas fa-atom"></i>
+              </div>
+              <h3 class="card--services-l6__heading">Lorem, ipsum.</h3>
+              <p class="card--services-l6__content">Lorem, ipsum.lorem Lorem ipsum <br class="d-none d-xs-block"> lorem
+                of Lorem lpsum<br class="d-none d-xs-block"> rem ipsum dolor sit ame</p>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-xs-8">
+            <div class="card card--services-l6 text-center card-hover__bittersweet">
+              <div class="card--services-l6__icon bg-op1__bittersweet mx-auto">
+                <i class="text-bittersweet far fa-file-code"></i>
+              </div>
+              <h3 class="card--services-l6__heading">Lorem, ipsum.</h3>
+              <p class="card--services-l6__content">Lorem, ipsum.lorem Lorem ipsum <br class="d-none d-xs-block"> lorem
+                of Lorem lpsum<br class="d-none d-xs-block"> rem ipsum dolor sit ame</p>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-xs-8">
+            <div class="card card--services-l6 text-center card-hover__bittersweet">
+              <div class="card--services-l6__icon bg-op1__bittersweet mx-auto">
+                <i class="text-bittersweet fas fa-laptop-code"></i>
+              </div>
+              <h3 class="card--services-l6__heading">Lorem, ipsum.</h3>
+              <p class="card--services-l6__content">Lorem, ipsum.lorem Lorem ipsum <br class="d-none d-xs-block"> lorem
+                of Lorem lpsum<br class="d-none d-xs-block"> rem ipsum dolor sit ame</p>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-xs-8">
+            <div class="card card--services-l6 text-center card-hover__bittersweet">
+              <div class="card--services-l6__icon bg-op1__bittersweet mx-auto">
+                <i class="text-bittersweet fas fa-user-astronaut"></i>
+              </div>
+              <h3 class="card--services-l6__heading">Lorem, ipsum.</h3>
+              <p class="card--services-l6__content">Lorem, ipsum.lorem Lorem ipsum <br class="d-none d-xs-block"> lorem
+                of Lorem lpsum<br class="d-none d-xs-block"> rem ipsum dolor sit ame</p>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-xs-8">
+            <div class="card card--services-l6 text-center card-hover__bittersweet">
+              <div class="card--services-l6__icon bg-op1__bittersweet mx-auto">
+                <i class="text-bittersweet fas fa-file-alt"></i>
+              </div>
+              <h3 class="card--services-l6__heading">Lorem, ipsum.</h3>
+              <p class="card--services-l6__content">Lorem, ipsum.lorem Lorem ipsum <br class="d-none d-xs-block"> lorem
+                of Lorem lpsum<br class="d-none d-xs-block"> rem ipsum dolor sit ame</p>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-xs-8">
+            <div class="card card--services-l6 text-center card-hover__bittersweet">
+              <div class="card--services-l6__icon bg-op1__bittersweet mx-auto">
+                <i class="text-bittersweet fas fa-certificate"></i>
+              </div>
+              <h3 class="card--services-l6__heading">Lorem, ipsum.</h3>
+              <p class="card--services-l6__content">Lorem, ipsum.lorem Lorem ipsum <br class="d-none d-xs-block"> lorem
+                of Lorem lpsum<br class="d-none d-xs-block"> rem ipsum dolor sit ame</p>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-xs-8">
+            <div class="card card--services-l6 text-center card-hover__bittersweet">
+              <div class="card--services-l6__icon bg-op1__bittersweet mx-auto">
+                <i class="text-bittersweet fas fa-keyboard"></i>
+              </div>
+              <h3 class="card--services-l6__heading">Lorem, ipsum.</h3>
+              <p class="card--services-l6__content">Lorem, ipsum.lorem Lorem ipsum <br class="d-none d-xs-block"> lorem
+                of Lorem lpsum<br class="d-none d-xs-block"> rem ipsum dolor sit ame</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ .Services Area -->
+    <!-- About Us Area -->
+    <div class="content-section content-section--8 bg-default-5  border-default-color-3">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class=" col-md-9 col-xs-10">
+            <!-- Section Title -->
+            <div class="section-title section-title--l8 mt-4 mt-md-0 text-center mb-xs-3">
+              <h2 class="section-title__heading fw-lighter">A Better Way to Prep for Coding Interviews.</h2>
+            </div>
+            <!--/ .Section Title -->
+          </div>
+        </div>
+        <div class="table-div">
+          <table class="table-main">
+            <thead class="thead">
+              <tr class="trow">
+                <th class="table-head"></th>
+                <th class="table-head">Cracking the Coding Interview</th>
+                <th class="table-head">LeetCode</th>
+                <th class="table-head algo-head">AlgoExpert</th>
+              </tr>
+            </thead>
+            <tbody class="tbody">
+              <tr class="trow">
+                <th class="table-head text-start">Guided Format</th>
+                <td class="table-data">
+                  <div class="td-div check-r"> <i class="fas fa-times"></i></div>
+                </td>
+                <td class="table-data">
+                  <div class="td-div check-r"> <i class="fas fa-times"></i></div>
+                </td>
+                <td class="table-data">
+                  <div class="td-div check-g"> <i class="fas fa-check"></i></div>
+                </td>
+              </tr>
+              <tr class="trow">
+                <th class="table-head text-start">Guided Format</th>
+                <td class="table-data">
+                  <div class="td-div check-r"> <i class="fas fa-times"></i></div>
+                </td>
+                <td class="table-data">
+                  <div class="td-div check-r"> <i class="fas fa-times"></i></div>
+                </td>
+                <td class="table-data">
+                  <div class="td-div check-g"> <i class="fas fa-check"></i></div>
+                </td>
+              </tr>
+              <tr class="trow">
+                <th class="table-head text-start">Guided Format</th>
+                <td class="table-data">
+                  <div class="td-div check-r"> <i class="fas fa-times"></i></div>
+                </td>
+                <td class="table-data">
+                  <div class="td-div check-r"> <i class="fas fa-times"></i></div>
+                </td>
+                <td class="table-data">
+                  <div class="td-div check-g"> <i class="fas fa-check"></i></div>
+                </td>
+              </tr>
+              <tr class="trow">
+                <th class="table-head text-start">Guided Format</th>
+                <td class="table-data">
+                  <div class="td-div check-g"><i class="fas fa-check"></i> </div>
+                </td>
+                <td class="table-data">
+                  <div class="td-div check-r"> <i class="fas fa-times"></i></div>
+                </td>
+                <td class="table-data">
+                  <div class="td-div check-g"> <i class="fas fa-check"></i></div>
+                </td>
+              </tr>
+              <tr class="trow">
+                <th class="table-head text-start">Guided Format</th>
+                <td class="table-data">
+                  <div class="td-div check-r"> <i class="fas fa-times"></i></div>
+                </td>
+                <td class="table-data">
+                  <div class="td-div check-r"> <i class="fas fa-times"></i></div>
+                </td>
+                <td class="table-data">
+                  <div class="td-div check-g"> <i class="fas fa-check"></i></div>
+                </td>
+              </tr>
+              <tr class="trow">
+                <th class="table-head text-start">Guided Format</th>
+                <td class="table-data">
+                  <div class="td-div check-r"> <i class="fas fa-times"></i></div>
+                </td>
+                <td class="table-data">
+                  <div class="td-div check-r"> <i class="fas fa-times"></i></div>
+                </td>
+                <td class="table-data">
+                  <div class="td-div check-g"> <i class="fas fa-check"></i></div>
+                </td>
+              </tr>
+              <tr class="trow">
+                <th class="table-head text-start">Guided Format</th>
+                <td class="table-data">
+                  <div class="td-div check-r"> <i class="fas fa-times"></i></div>
+                </td>
+                <td class="table-data">
+                  <div class="td-div check-r"> <i class="fas fa-times"></i></div>
+                </td>
+                <td class="table-data">
+                  <div class="td-div check-g"> <i class="fas fa-check"></i></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!--/ .About Us Area -->
+
+    <div class="about-us-section about-us-section--l5 bg-default-5">
+      <div class=" company-div container">
+        <!-- about-us Content -->
+        <div class="row align-items-center justify-content-center">
+          <div class="col-xl-6 offset-xl-1 col-lg-6 col-md-8 col-xs-10 aos-init aos-animate">
+            <div class="about-us-right mt-4 mt-lg-0 text-center">
+              <div class="section-title section-title--l5">
+                <h3 class="mb-4">With Great Outcomes.</h3>
+                <p class="section-title__description">Our customers have gotten offers from awesome companies.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--/ .about-us Content -->
+        <div class="row text-center">
+
+          <div class="col"><img class="company-div-img"
+              src="https://assets.algoexpert.io/spas/main/prod/g9335aa5680-prod/dist/images/google.noinline.png?8ec64f75"
+              loading="lazy" alt="company logo"></div>
+          <div class="col"><img class="company-div-img"
+              src="https://assets.algoexpert.io/spas/main/prod/g9335aa5680-prod/dist/images/facebook.noinline.png?4b8d45da"
+              loading="lazy" alt="company logo"></div>
+          <div class="col"><img class="company-div-img"
+              src="https://assets.algoexpert.io/spas/main/prod/g9335aa5680-prod/dist/images/microsoft.noinline.png?155bcdb7"
+              loading="lazy" alt="company logo"></div>
+          <div class="col"><img class="company-div-img"
+              src="https://assets.algoexpert.io/spas/main/prod/g9335aa5680-prod/dist/images/bloomberg.noinline.png?fe040b4b"
+              loading="lazy" alt="company logo"></div>
+          <div class="col"><img class="company-div-img"
+              src="https://assets.algoexpert.io/spas/main/prod/g9335aa5680-prod/dist/images/google.noinline.png?8ec64f75"
+              loading="lazy" alt="company logo"></div>
+
+        </div>
+        <div class="row text-center">
+
+
+          <div class="col"><img class="company-div-img"
+              src="https://assets.algoexpert.io/spas/main/prod/g9335aa5680-prod/dist/images/google.noinline.png?8ec64f75"
+              loading="lazy" alt="company logo"></div>
+          <div class="col"><img class="company-div-img"
+              src="https://assets.algoexpert.io/spas/main/prod/g9335aa5680-prod/dist/images/microsoft.noinline.png?155bcdb7"
+              loading="lazy" alt="company logo"></div>
+          <div class="col"><img class="company-div-img"
+              src="https://assets.algoexpert.io/spas/main/prod/g9335aa5680-prod/dist/images/facebook.noinline.png?4b8d45da"
+              loading="lazy" alt="company logo"></div>
+          <div class="col"><img class="company-div-img"
+              src="https://assets.algoexpert.io/spas/main/prod/g9335aa5680-prod/dist/images/google.noinline.png?8ec64f75"
+              loading="lazy" alt="company logo"></div>
+          <div class="col"><img class="company-div-img"
+              src="https://assets.algoexpert.io/spas/main/prod/g9335aa5680-prod/dist/images/bloomberg.noinline.png?fe040b4b"
+              loading="lazy" alt="company logo"></div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- Testimonial Area -->
+    <div class="testimonial-section testimonial-section--l8 bg-default-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-8 col-xl-9 col-xxl-7">
+            <div class="section-title section-title--l8 text-center text-lg-start">
+              <h6 class="section-title__sub-heading text-bittersweet"><a href="#">Read More Testimonials</a></h6>
+              <h2 class="section-title__heading mb-0">And Over 90,000 Satisfied Engineers.</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center testimonial-slider--l8">
+          <div class="col-lg-4 col-md-12">
+            <div class="card-image testimonial-card">
+              <img
+                src="https://assets.algoexpert.io/spas/main/prod/g33334ced25-prod/dist/images/testimonialPicAlberto.noinline.jpg?0236e106"
+                alt="">
+            </div>
+            <div class="card card-testimonial--l4">
+              <div class="card-body ">
+                <div class="card-body__top d-flex align-items-center justify-content-between">
+                  <div class="d-flex flex-wrap align-items-center">
+                    <div class="card-body__user mr-3">
+                      <h3 class="card-title">Charles Patterson</h3>
+                      <p class="card-text--ext">One year with us</p>
+                    </div>
+                  </div>
+                  <div class="card-icon">
+                    <i class="fa fa-quote-left"></i>
+                  </div>
+                </div>
+                <p class="card-description">consetetur sadipscing elltr, sed dlam nonumy elrmod tempor invidunt ut
+                  labore et dolore magna allquyam erat, sed dlam voluptua.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12">
+            <div class="card-image testimonial-card">
+              <img
+                src="https://assets.algoexpert.io/spas/main/prod/g33334ced25-prod/dist/images/testimonialPicAlberto.noinline.jpg?0236e106"
+                alt="">
+            </div>
+            <div class="card card-testimonial--l4">
+              <div class="card-body ">
+                <div class="card-body__top d-flex align-items-center justify-content-between">
+                  <div class="d-flex flex-wrap align-items-center">
+                    <div class="card-body__user mr-3">
+                      <h3 class="card-title">Charles Patterson</h3>
+                      <p class="card-text--ext">One year with us</p>
+                    </div>
+                  </div>
+                  <div class="card-icon">
+                    <i class="fa fa-quote-left"></i>
+                  </div>
+                </div>
+                <p class="card-description">consetetur sadipscing elltr, sed dlam nonumy elrmod tempor invidunt ut
+                  labore et dolore magna allquyam erat, sed dlam voluptua.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-12">
+            <div class="card-image testimonial-card">
+              <img
+                src="https://assets.algoexpert.io/spas/main/prod/g33334ced25-prod/dist/images/testimonialPicAlberto.noinline.jpg?0236e106"
+                alt="">
+            </div>
+            <div class="card card-testimonial--l4">
+              <div class="card-body ">
+                <div class="card-body__top d-flex align-items-center justify-content-between">
+                  <div class="d-flex flex-wrap align-items-center">
+                    <div class="card-body__user mr-3">
+                      <h3 class="card-title">Charles Patterson</h3>
+                      <p class="card-text--ext">One year with us</p>
+                    </div>
+                  </div>
+                  <div class="card-icon">
+                    <i class="fa fa-quote-left"></i>
+                  </div>
+                </div>
+                <p class="card-description">consetetur sadipscing elltr, sed dlam nonumy elrmod tempor invidunt ut
+                  labore et dolore magna allquyam erat, sed dlam voluptua.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-12">
+            <div class="card-image testimonial-card">
+              <img
+                src="https://assets.algoexpert.io/spas/main/prod/g33334ced25-prod/dist/images/testimonialPicAlberto.noinline.jpg?0236e106"
+                alt="">
+            </div>
+            <div class="card card-testimonial--l4">
+              <div class="card-body ">
+                <div class="card-body__top d-flex align-items-center justify-content-between">
+                  <div class="d-flex flex-wrap align-items-center">
+                    <div class="card-body__user mr-3">
+                      <h3 class="card-title">Charles Patterson</h3>
+                      <p class="card-text--ext">One year with us</p>
+                    </div>
+                  </div>
+                  <div class="card-icon">
+                    <i class="fa fa-quote-left"></i>
+                  </div>
+                </div>
+                <p class="card-description">consetetur sadipscing elltr, sed dlam nonumy elrmod tempor invidunt ut
+                  labore et dolore magna allquyam erat, sed dlam voluptua.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-12">
+            <div class="card-image testimonial-card">
+              <img
+                src="https://assets.algoexpert.io/spas/main/prod/g33334ced25-prod/dist/images/testimonialPicAlberto.noinline.jpg?0236e106"
+                alt="">
+            </div>
+            <div class="card card-testimonial--l4">
+              <div class="card-body ">
+                <div class="card-body__top d-flex align-items-center justify-content-between">
+                  <div class="d-flex flex-wrap align-items-center">
+                    <div class="card-body__user mr-3">
+                      <h3 class="card-title">Charles Patterson</h3>
+                      <p class="card-text--ext">One year with us</p>
+                    </div>
+                  </div>
+                  <div class="card-icon">
+                    <i class="fa fa-quote-left"></i>
+                  </div>
+                </div>
+                <p class="card-description">consetetur sadipscing elltr, sed dlam nonumy elrmod tempor invidunt ut
+                  labore et dolore magna allquyam erat, sed dlam voluptua.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center mt-xs-4">
+          <div class="col-xxl-5 col-xl-3 col-lg-4 text-center  ">
+            <div class="testimonial-btn mb-6 mb-lg-0"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ .Testimonial Area -->
+
+    <div class="section-area section-area--l8 bg-home section-6">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xl-8">
+            <!-- Section Title -->
+            <div class="section-title section-title--l8 text-center">
+              <h2 class="fw-lighter">160 Questions Spanning 15 Categories.</h2>
+              <br>
+              <p> If you want to ace the coding interviews, being well-versed in all common data structures and popular
+                problem-solving methods is paramount. With 160 questions spanning 15 categories and 4 difficulty levels,
+                we've got you covered.Explore Questions </p>
+              <div id="outer">
+                <div><a class="btn btn--lg-2 btn-welcome me-3 text-white popup-btn aos-init aos-animate"
+                    href="#">Explore Questions</a></div>
+              </div>
+            </div>
+            <!--/ .Section Title -->
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-xl-4 col-lg-4 col-md-6 col-xs-8">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class=" d-flex flex-column flip-card-front justify-content-center">
+                  <i class="fas fa-check-circle fa-2x mb-2"></i>
+                  <h6>Array</h6>
+                </div>
+                <div class=" d-flex flex-column flip-card-back justify-content-center">
+                  <p>Harder then they seem.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-xs-8">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class=" d-flex flex-column flip-card-front justify-content-center">
+                  <i class="fas fa-check-circle fa-2x mb-2"></i>
+                  <h6>Array</h6>
+                </div>
+                <div class=" d-flex flex-column flip-card-back justify-content-center">
+                  <p>Harder then they seem.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-xs-8">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class=" d-flex flex-column flip-card-front justify-content-center">
+                  <i class="fas fa-check-circle fa-2x mb-2"></i>
+                  <h6>Array</h6>
+                </div>
+                <div class=" d-flex flex-column flip-card-back justify-content-center">
+                  <p>Harder then they seem.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-xs-8">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class=" d-flex flex-column flip-card-front justify-content-center">
+                  <i class="fas fa-check-circle fa-2x mb-2"></i>
+                  <h6>Array</h6>
+                </div>
+                <div class=" d-flex flex-column flip-card-back justify-content-center">
+                  <p>Harder then they seem.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-xs-8">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class=" d-flex flex-column flip-card-front justify-content-center">
+                  <i class="fas fa-check-circle fa-2x mb-2"></i>
+                  <h6>Array</h6>
+                </div>
+                <div class=" d-flex flex-column flip-card-back justify-content-center">
+                  <p>Harder then they seem.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-xs-8">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class=" d-flex flex-column flip-card-front justify-content-center">
+                  <i class="fas fa-check-circle fa-2x mb-2"></i>
+                  <h6>Array</h6>
+                </div>
+                <div class=" d-flex flex-column flip-card-back justify-content-center">
+                  <p>Harder then they seem.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-xs-8">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class=" d-flex flex-column flip-card-front justify-content-center">
+                  <i class="fas fa-check-circle fa-2x mb-2"></i>
+                  <h6>Array</h6>
+                </div>
+                <div class=" d-flex flex-column flip-card-back justify-content-center">
+                  <p>Harder then they seem.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-xs-8">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class=" d-flex flex-column flip-card-front justify-content-center">
+                  <i class="fas fa-check-circle fa-2x mb-2"></i>
+                  <h6>Array</h6>
+                </div>
+                <div class=" d-flex flex-column flip-card-back justify-content-center">
+                  <p>Harder then they seem.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-xs-8">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class=" d-flex flex-column flip-card-front justify-content-center">
+                  <i class="fas fa-check-circle fa-2x mb-2"></i>
+                  <h6>Array</h6>
+                </div>
+                <div class=" d-flex flex-column flip-card-back justify-content-center">
+                  <p>Harder then they seem.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-xs-8">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class=" d-flex flex-column flip-card-front justify-content-center">
+                  <i class="fas fa-check-circle fa-2x mb-2"></i>
+                  <h6>Array</h6>
+                </div>
+                <div class=" d-flex flex-column flip-card-back justify-content-center">
+                  <p>Harder then they seem.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-xs-8">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class=" d-flex flex-column flip-card-front justify-content-center">
+                  <i class="fas fa-check-circle fa-2x mb-2"></i>
+                  <h6>Array</h6>
+                </div>
+                <div class=" d-flex flex-column flip-card-back justify-content-center">
+                  <p>Harder then they seem.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-xs-8">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class=" d-flex flex-column flip-card-front justify-content-center">
+                  <i class="fas fa-check-circle fa-2x mb-2"></i>
+                  <h6>Array</h6>
+                </div>
+                <div class=" d-flex flex-column flip-card-back justify-content-center">
+                  <p>Harder then they seem.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-xs-8">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class=" d-flex flex-column flip-card-front justify-content-center">
+                  <i class="fas fa-check-circle fa-2x mb-2"></i>
+                  <h6>Array</h6>
+                </div>
+                <div class=" d-flex flex-column flip-card-back justify-content-center">
+                  <p>Harder then they seem.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-xs-8">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class=" d-flex flex-column flip-card-front justify-content-center">
+                  <i class="fas fa-check-circle fa-2x mb-2"></i>
+                  <h6>Array</h6>
+                </div>
+                <div class=" d-flex flex-column flip-card-back justify-content-center">
+                  <p>Harder then they seem.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-6 col-xs-8">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class=" d-flex flex-column flip-card-front justify-content-center">
+                  <i class="fas fa-check-circle fa-2x mb-2"></i>
+                  <h6>Array</h6>
+                </div>
+                <div class=" d-flex flex-column flip-card-back justify-content-center">
+                  <p>Harder then they seem.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="about-us-section about-us-section--l5 bg-default-5">
+      <div class="container">
+        <!-- about-us Content -->
+        <div class="row align-items-center justify-content-center">
+          <div class="col-xl-5 offset-xl-1 col-lg-6 col-md-8 col-xs-10 aos-init aos-animate" data-aos="fade-left"
+            data-aos-duration="500" data-aos-once="true">
+            <div class="about-us-right mt-4 mt-lg-0">
+              <div class="section-title section-title--l5">
+                <h3 class="mb-4">Our Videos Set Us Apart.</h3>
+                <p class="section-title__description">The truth is that interview questions and algorithms are
+                  difficult. Even more difficult is trying to understand the inner workings of a complex algorithm from
+                  a book or from a poorly thought-out video shot on your grandma's camera.</p>
+
+              </div>
+              <div class="d-flex justify-content-center mt-4">
+                <div>
+                  <div class="d-flex  align-items-center mt-4 mb-2"> <i class="fas fa-atom fa-2x me-2"></i> Conceptual
+                    Overview</div>
+                  <div>Our videos all start with an in-depth conceptual overview of the algorithm at hand</div>
+                </div>
+                <div>
+                  <div class="d-flex  align-items-center mt-4 mb-2"> <i class="fas fa-keyboard fa-2x me-2"></i>
+                    Conceptual Overview</div>
+                  <div>Our videos all start with an in-depth conceptual overview of the algorithm at hand</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-8 col-xs-10 aos-init aos-animate" data-aos="fade-right"
+            data-aos-duration="500" data-aos-once="true">
+            <div class="about-us__image">
+              <img class="w-100" src="" alt="">
+              <!-- Video Button -->
+              <a class="video-btn" href="#"> <i class="fa fa-play"></i> </a>
+            </div>
+          </div>
+        </div>
+        <!--/ .about-us Content -->
+      </div>
+
+    </div>
+
+    <div class="bg-default-5">
+      <div style="background-color: rgb(2, 32, 60); width: 87%; height: 1px; margin: 0px auto;"></div>
+    </div>
+
+    <div class="about-us-section about-us-section--l5 bg-default-5">
+      <div class="container">
+        <!-- about-us Content -->
+        <div class="row align-items-center justify-content-center">
+
+          <div class="col-xl-6 col-lg-6 col-md-8 col-xs-10 aos-init aos-animate" data-aos="fade-right"
+            data-aos-duration="500" data-aos-once="true">
+            <div class="course-img-div">
+              <div class="course-img-inner-div">
+                <picture>
+                  <source type="image/webp"
+                    srcset="https://assets.algoexpert.io/spas/main/prod/g33334ced25-prod/dist/images/ds-banner-image.noinline.webp?570289ba">
+                  <img
+                    src="https://assets.algoexpert.io/spas/main/prod/g33334ced25-prod/dist/images/ds-banner-image.noinline.jpg?0d1e07d3"
+                    class="image-course" loading="lazy" alt="data structure video screenshot">
+                </picture>
+                <div class="gradient-div"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-5 offset-xl-1 col-lg-6 col-md-8 col-xs-10 aos-init aos-animate" data-aos="fade-left"
+            data-aos-duration="500" data-aos-once="true">
+            <div class="about-us-right mt-4 mt-lg-0">
+              <div class="section-title section-title--l5">
+                <h3 class="mb-4">Data Structures Crash Course.</h3>
+                <p class="section-title__description">Algorithms and data structures go hand in hand; the solution to
+                  virtually any coding interview problem will require the implementation of some kind of abstract data
+                  type in order to access and manipulate information.
+
+                  Our video series on data structures is the ultimate crash course on this important topic. We cover
+                  fundamental concepts pertaining to memory, complexity analysis, and Big O notation, and then break
+                  down popular data structures to give you a detailed look at how these concepts are applied under the
+                  hood. Linked Lists and Binary Trees will never instill fear in your heart again..</p>
+
+              </div>
+              <div class="d-flex justify-content-start mt-4">
+                <div>
+                  <a class="btn btn--lg-2 btn-welcome me-3 text-white popup-btn aos-init aos-animate" href="#"
+                    data-aos="fade-up" data-aos-duration="500" data-aos-delay="700" data-aos-once="true">Start the
+                    Course</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/ .about-us Content -->
+        </div>
+      </div>
+
+    </div>
+
+    <div class="bg-default-5">
+      <div style="background-color: rgb(2, 32, 60); width: 87%; height: 1px; margin: 0px auto;"></div>
+    </div>
+
+    <div class="about-us-section about-us-section--l5 bg-default-5">
+      <div class="container">
+        <!-- about-us Content -->
+        <div class="row align-items-center justify-content-center">
+          <div class="col-xl-5 offset-xl-1 col-lg-6 col-md-8 col-xs-10 aos-init aos-animate" data-aos="fade-left"
+            data-aos-duration="500" data-aos-once="true">
+            <div class="about-us-right mt-4 mt-lg-0">
+              <div class="section-title section-title--l5">
+                <h3 class="mb-4">We Speak 9 Languages.</h3>
+                <p class="section-title__description">There's nothing more frustrating than opening an interview prep
+                  book, only to find a bunch of solutions in a programming language that you don't know. That's why all
+                  of our questions come with complete written solutions in 9 popular languages.</p>
+
+              </div>
+
+              <div class="d-flex justify-content-left mt-4">
+                <div>
+                  <div class="d-flex  align-items-center mt-4 mb-2" style="font-size: 15px;"> <i class="fab fa-js fa-2x me-2"></i> <span
+                      class="fw-bolder">JavaScript, </span> for all you Front-End Developers</div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-left mt-4">
+                <div>
+                  <div class="d-flex  align-items-center mt-4 mb-2" style="font-size: 15px;"> <i class="fas fa-code fa-2x me-2"></i> <span
+                      class="fw-bolder">JavaScript, </span> for all you Front-End Developers</div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-left mt-4">
+                <div>
+                  <div class="d-flex  align-items-center mt-4 mb-2" style="font-size: 15px;"> <i class="fab fa-python fa-2x me-2"></i> <span
+                      class="fw-bolder">JavaScript, </span> for all you Front-End Developers</div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-left mt-4">
+                <div>
+                  <div class="d-flex  align-items-center mt-4 mb-2" style="font-size: 15px;"> <i class="fas fa-mobile fa-2x me-2"></i> <span
+                      class="fw-bolder">JavaScript, </span> for all you Front-End Developers</div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-left mt-4">
+                <div>
+                  <div class="d-flex  align-items-center mt-4 mb-2" style="font-size: 15px;">  <i class="fab fa-android fa-2x me-2"></i> <span
+                      class="fw-bolder">JavaScript, </span> for all you Front-End Developers</div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-left mt-4">
+                <div>
+                  <div class="d-flex  align-items-center mt-4 mb-2" style="font-size: 15px;"> <i class="fab fa-windows fa-2x me-2"></i> <span
+                      class="fw-bolder">JavaScript, </span> for all you Front-End Developers</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="hide col-xl-6 col-lg-6 col-md-8 col-xs-10 aos-init aos-animate "  >
+            <div class="about-us__image">
+              <img src="./image/code.svg" alt="">
+            </div>
+          </div>
+        </div>
+
+        <div class=" hide row align-items-center justify-content-center mt-7">
+          <div class="col-10"  >
+            <div class="about-us-right mt-4 mt-lg-0">
+              <div class="section-title section-title--l5">
+                <p class="section-bar"> Hey there! Do you want to ace your upcoming coding interviews?</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hide row align-items-center justify-content-start">
+          <div class="col-2" style="  margin-left: 109px;  ">
+            <div class="about-us-right mt-4 mt-lg-0">
+              <div class="section-title section-title--l5">
+                <p class="section-bar"> Of course! </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-2" style="  margin-left: -59px; ">
+            <div class="about-us-right mt-4 mt-lg-0">
+              <div class="section-title section-title--l5">
+                <p class="section-bar"> Nope. </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--/ .about-us Content -->
+      </div>
+
+    </div>
+
+
+    <div class="about-us-section about-us-section--l5 bg-custom">
+      <div class="container text-center mb-7">
+        <h2>Big <span class="fst-italic">O</span> Notation Made Easy.</h2>
+      </div>
+      <div class="container" style="max-width: 98%;">
+        <!-- about-us Content -->
+        <div class="row align-items-center justify-content-center">
+
+          <div class="col-xl-5 offset-xl-1 col-lg-6 col-md-8 col-xs-10 aos-init aos-animate" data-aos="fade-left"
+            data-aos-duration="500" data-aos-once="true">
+            <div class="about-us-right mt-4 mt-lg-0">
+              <div class="section-title section-title--l5 text-center">
+                <h3 class="mb-4">Time Complexity</h3>
+                <p class="section-title__description">Why does building a heap only take <span
+                    class="fst-italic">O</span> (N) time? What does <span class="fst-italic">O</span> (logN) really
+                  mean? What's the time-complexity difference between appending a value to an array and adding a
+                  character to a string? We address all of these things, and more.</p>
+
+              </div>
+              <div class="d-flex justify-content-center mt-4">
+                <div style=" font-size: 2.5rem; ">
+                  <i class="far fa-hourglass fa-10x"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-5 offset-xl-1 col-lg-6 col-md-8 col-xs-10 aos-init aos-animate" data-aos="fade-left"
+            data-aos-duration="500" data-aos-once="true">
+            <div class="about-us-right mt-4 mt-lg-0">
+              <div class="section-title section-title--l5 text-center">
+                <h3 class="mb-4">Space Complexity</h3>
+                <p class="section-title__description">You know that thing you're kinda familiar with but not really?
+                  Yeah, that's space complexity. And it turns out it's pretty important. All of our video explanations
+                  dive deep into space-complexity to turn you into a well rounded Big <span class="fst-italic">O</span>
+                  expert.</p>
+
+              </div>
+              <div class="d-flex justify-content-center mt-4">
+                <div style=" font-size: 2.5rem; ">
+                  <i class="fas fa-database fa-10x"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!--/ .about-us Content -->
+      </div>
+
+      <div class="container text-center mt-7 pt-3">
+        <div><a class="btn btn--lg-2 btn-welcome me-3 text-white popup-btn aos-init aos-animate" href="#"
+            data-aos="fade-up" data-aos-duration="500" data-aos-delay="700" data-aos-once="true"> Become an AlgoExpert
+            <i class="fas fa-arrow-right ms-2"></i> </a></div>
+      </div>
+
+
+    </div>
+
+    <div class="footer-bg">
+      <div style="background-color: rgb(255, 255, 255); width: 87%; height: 1px; margin: 0px auto;"></div>
+    </div>
+
+    <div class="cta-area cta-area--l8 footer-bg">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xl-7 col-lg-10 col-md-11">
+            <div class="section-title section-title--l4 text-center">
+              <div class="Footer-linksContainer"><a class="Footer-link Footer-link--white" href="/help">Contact Us</a>
+                <div class="Footer-bar Footer-bar--white"></div><a class="Footer-link Footer-link--white"
+                  href="/help">FAQ</a>
+                <div class="Footer-bar Footer-bar--white"></div><a class="Footer-link Footer-link--white"
+                  href="/reviews">Reviews</a>
+                <div class="Footer-bar Footer-bar--white"></div><a class="Footer-link Footer-link--white"
+                  href="/blog">Blog</a>
+                <div class="Footer-bar Footer-bar--white"></div><a class="Footer-link Footer-link--white"
+                  href="/jobs">Jobs</a>
+                <div class="Footer-bar Footer-bar--white"></div><a class="Footer-link Footer-link--white"
+                  href="/swe-project-contests">SWE Project Contests</a>
+                <div class="Footer-bar Footer-bar--white"></div><a class="Footer-link Footer-link--white"
+                  href="/legal">Legal Stuff</a>
+                <div class="Footer-bar Footer-bar--white"></div><a class="Footer-link Footer-link--white"
+                  href="/privacy">Privacy Policy</a>
+              </div>
+
+              <div class="Footer-copyrightMessage Footer-copyrightMessage--white">Copyright © 2017-2021 AlgoExpert LLC.
+                All rights reserved.</div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- Plugin's Scripts -->
+  <script src="./plugins/jquery/jquery.min.js"></script>
+  <script src="./plugins/jquery/jquery-migrate.min.js"></script>
+  <script src="./js/bootstrap.bundle.js"></script>
+  <script src="./plugins/fancybox/jquery.fancybox.min.js"></script>
+  <script src="./plugins/nice-select/jquery.nice-select.min.js"></script>
+  <script src="./plugins/aos/aos.min.js"></script>
+  <script src="./plugins/counter-up/jquery.counterup.min.js"></script>
+  <script src="./plugins/counter-up/waypoints.min.js"></script>
+  <script src="./plugins/slick/slick.min.js"></script>
+  <script src="./plugins/skill-bar/skill.bars.jquery.js"></script>
+  <script src="./plugins/isotope/isotope.pkgd.min.js"></script>
+
+  <script src="js/menu.js"></script>
+
+</body>
+
+</html>
